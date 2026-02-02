@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Verdun",
+			"country": {
+				"code": "CA",
+				"name": "Canada"
+			},
+			"subdivision": {
+				"code": "QC",
+				"name": "Quebec"
+			},
+			"timezone": "America/Toronto",
+			"latitude": 45.467,
+			"longitude": -73.5732,
+			"postalCode": "H4G"
+		},
+		"timestamp": 1770072998960
+	}
+}
