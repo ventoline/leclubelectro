@@ -22,7 +22,6 @@
   "dependencies": {
     "@dvcol/svelte-simple-router": "^2.7.2",
     "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "yarn": "^1.22.22"
+    "express": "^5.2.1"
   }
 }
