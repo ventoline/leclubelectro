@@ -1,6 +1,6 @@
 <script>
-  import Section from "../components/layout/WorkshopSection.svelte";
-  import WorkshopsSection from "../components/layout/WorkshopSection.svelte";
+  import Section from "../components/workshops/WorkshopSection.svelte";
+  import WorkshopsSection from "../components/workshops/WorkshopSection.svelte";
  // import WorkshopsSection from "../components/workshops/WorkshopsSection.svelte";
  // import AppsSection from "../components/apps/AppsSection.svelte";
 </script>

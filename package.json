@@ -15,10 +15,12 @@
     "@types/node": "^24.10.1",
     "svelte": "^5.43.8",
     "svelte-check": "^4.3.4",
+    "svelte-spa-router": "^4.0.1",
     "typescript": "~5.9.3",
-    "vite": "^7.2.4",   "svelte-spa-router": "^4.0.1"
+    "vite": "^7.2.4"
   },
   "dependencies": {
+    "@dvcol/svelte-simple-router": "^2.7.2",
     "dotenv": "^17.2.3",
     "express": "^5.2.1"
   }
