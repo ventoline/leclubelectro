@@ -1,8 +1,4 @@
-
-
 <script>
-import SubscribeApi from '../SubscribeApi.svelte';
-
   export let id = "";
   export let title = "";
   export let subtitle = "";
@@ -14,7 +10,7 @@ import SubscribeApi from '../SubscribeApi.svelte';
     {#if subtitle}<p class="subtitle">{subtitle}</p>{/if}
     <div class="content">
       <slot />
-      <SubscribeApi />
+      <subscribe-api ></subscribe-api>
     </div>
   </div>
 </section>
