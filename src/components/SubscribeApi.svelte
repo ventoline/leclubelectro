@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">type ApiError = { error?: string; message?: string; detail?: string };
+
   let email = '';
   let name = '';
   let status = '';
@@ -31,8 +32,8 @@ async function submit() {
     status = 'Subscribed — check your email.';
     email = '';
     name = '';
-  } catch (err) {
-    status = err?.message || 'Network error';
+  } catch (err:any) {
+    status = err.message || 'Network error';
   } finally {
     loading = false;
   }
