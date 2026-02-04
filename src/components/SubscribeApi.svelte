@@ -4,29 +4,40 @@
   let status = '';
   let loading = false;
 
-  async function submit() {
-    status = '';
-    loading = true;
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'email': email, 'name' : name })
-      });
-      const body = await res.json();
-      if (res.ok) {
-        status = 'Subscribed — check your email.';
-        email = '';
-        name = '';
-      } else {
-        status = body?.message || 'Subscription failed';
-      }
-    } catch (err) {
-      status = err.message || 'Network error';
-    } finally {
-      loading = false;
+async function submit() {
+  console.log('Submitting', { email, name });
+  status = '';
+  loading = true;
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name })
+    });
+
+    const contentType = res.headers.get('content-type') || '';
+    let data = null;
+
+    if (contentType.includes('application/json')) {
+      data = await res.json().catch(() => null);
     }
+
+    if (!res.ok) {
+      status = data?.error || data?.message || `Request failed (${res.status})`;
+      return;
+    }
+
+    status = 'Subscribed — check your email.';
+    email = '';
+    name = '';
+  } catch (err) {
+    status = err?.message || 'Network error';
+  } finally {
+    loading = false;
   }
+}
+
 </script>
 
 <form on:submit|preventDefault={submit} class="subscribe-form">
