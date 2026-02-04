@@ -1,8 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/" }
-  ],
+  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/" }],
+
   "buildCommand": "npm run build",
   "installCommand": "npm ci"
 }
