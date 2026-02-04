@@ -17,13 +17,41 @@ export default async function handler(req, res) {
         .end(JSON.stringify({ error: "Email is required" }));
     }
 
-    // TEMP sanity check (do NOT add MailerLite yet)
-    return res.status(200).end(
-      JSON.stringify({
-        success: true,
-        received: { email, name },
-      }),
+    const apiKey = process.env.MAILERLITE_API_KEY;
+    if (!apiKey) {
+      return res
+        .status(500)
+        .end(JSON.stringify({ error: "Missing MAILERLITE_API_KEY" }));
+    }
+
+    const mlRes = await fetch(
+      "https://connect.mailerlite.com/api/subscribers",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          email,
+          name,
+        }),
+      },
     );
+
+    const text = await mlRes.text();
+
+    if (!mlRes.ok) {
+      return res.status(mlRes.status).end(
+        JSON.stringify({
+          error: "MailerLite rejected request",
+          detail: text,
+        }),
+      );
+    }
+
+    return res.status(200).end(JSON.stringify({ success: true }));
   } catch (err) {
     return res.status(500).end(
       JSON.stringify({
