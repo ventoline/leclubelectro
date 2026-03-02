@@ -41,22 +41,25 @@ async function submit() {
 }
 
 </script>
+  <p>Get updates on upcoming workshops and events!</p>
+<div class="subscribe-intro">
 
-<form on:submit|preventDefault={submit} class="subscribe-form">
+
+  <form on:submit|preventDefault={submit} class="subscribe-form">
   <label>
-    Email
+    
     <input type="email" bind:value={email} required placeholder="you@example.com" />
   </label>
   <label>
-    Name
-    <input type="text" bind:value={name} placeholder="Optional" />
+    
+    <input type="text" bind:value={name} placeholder="Name" />
   </label>
   <button type="submit" disabled={loading}>{loading ? 'Sending...' : 'Subscribe'}</button>
   {#if status}
     <p class="status">{status}</p>
   {/if}
 </form>
-
+</div>
 <style>
   .subscribe-form { display:flex; flex-direction:column; gap:0.5rem; max-width:420px; }
   input { padding:0.5rem; border:1px solid #ccc; border-radius:4px; }

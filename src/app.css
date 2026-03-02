@@ -39,6 +39,27 @@ h1 {
   padding: 2em;
 }
 
+.subscribe-form {
+  margin: auto;
+}
+.sidebar-workshops {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  float: right;
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 70px;
+  max-height: 100px;
+  opacity: 0.8 !important;
+}
+.fb-page {
+  opacity: 0.8 !important;
+  height: 250px;
+  overflow: hidden;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -63,6 +84,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #121212;
 }
 
 @media (prefers-color-scheme: light) {
