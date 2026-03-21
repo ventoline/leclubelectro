@@ -25,8 +25,8 @@ export default async function handler(req, res) {
     }
 
     const mlRes = await fetch(
-      //   "https://connect.mailerlite.com/api/subscribers",
-      "https://api.mailerlite.com/api/v2/groups/182552014703560314/subscribers",
+      "https://connect.mailerlite.com/api/subscribers",
+      //  "https://api.mailerlite.com/api/v2/groups/182552014703560314/subscribers",
       {
         method: "POST",
         headers: {
@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           email,
           name,
+          groups: ["182552014703560314"],
         }),
       },
     );
