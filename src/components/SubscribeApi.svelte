@@ -2,6 +2,7 @@
 
   let email = '';
   let name = '';
+  let group = 'lce-info'; //pass as a var
   let status = '';
   let loading = false;
 
@@ -15,7 +16,7 @@ async function submit() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
 
-      body: JSON.stringify({ email, name })
+      body: JSON.stringify({ email, name }) //TODO add group for newsletter and workshops
     });
 
     const contentType = res.headers.get('content-type') || '';

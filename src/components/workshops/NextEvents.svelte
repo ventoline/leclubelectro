@@ -58,7 +58,6 @@ console.log("GCAL response", { data });
   onMount(loadEvents);
 </script>
 
-<h2></h2>
 
 {#if loading}
   <p>Loading...</p>
@@ -84,7 +83,7 @@ console.log("GCAL response", { data });
           
           <a href={ev.htmlLink} target="_blank">
             Calendar
-          </a> | <span><a href={'#'}> Book </a> </span>
+          </a> | <span><a href={`mailto:leclubelectro@gmail.com?subject=${ev.summary}`}> Book </a> </span>
           <hr/>
         {/if}
       </li>
